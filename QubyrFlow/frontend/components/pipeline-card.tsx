@@ -44,24 +44,10 @@ export function PipelineCard({
             </div>
             <div>
               <p className="font-heading text-sm font-extrabold text-foreground">
-                {isDemo ? "DEMO-001" : `PIPE-${pipeId}`}
+                PIPE-{pipeId}
               </p>
-              {isDemo && (
-                <p className="text-xs font-semibold text-muted-foreground">
-                  Nord Stream Simulation
-                </p>
-              )}
             </div>
           </div>
-          {isDemo && (
-            <span className="flex items-center gap-1.5 text-xs font-bold text-primary">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-              </span>
-              Live
-            </span>
-          )}
         </div>
 
         {/* Details */}

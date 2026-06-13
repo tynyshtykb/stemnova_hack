@@ -32,7 +32,7 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
             <Shield className="h-8 w-8 text-white" />
           </div>
           <h1 className="font-heading text-3xl font-extrabold tracking-tight text-white">
-            EcoPipe Guard
+            QubyrFlow
           </h1>
           <p className="text-center text-sm font-semibold text-emerald-300/70">
             Real-time Pipeline Predictive Maintenance System

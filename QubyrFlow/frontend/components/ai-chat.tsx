@@ -9,7 +9,7 @@ import { callGemini } from "@/lib/api";
 const MOCK_RESPONSES = [
   "**Pipeline Status:** All systems are currently **Nominal**. No immediate action required. Next scheduled inspection is in 14 days.",
   "**Corrosion Analysis:** Rates are within acceptable parameters at **0.12 mm/yr**. Scheduled maintenance can proceed as planned.",
-  "**Lifetime Estimate:** Based on current degradation models, DEMO-001 has an estimated **46.7 years** until critical threshold.",
+  "**Lifetime Estimate:** Based on current degradation models, the pipeline has an estimated **46.7 years** until critical threshold.",
   "**Pressure Report:** Fluctuations detected are within normal operating range (**90-110 psi**). No anomalies flagged.",
   "**Thermal Status:** Temperature readings stable at **22.3C**. Thermal expansion coefficients are within design specifications.",
   "**Model Confidence:** Predictive model accuracy is at **94.2%**. Recommend next physical inspection in **6 months**.",
@@ -36,7 +36,7 @@ export function AiChat() {
       id: "welcome",
       role: "assistant",
       content:
-        "Hello! I'm the **EcoPipe Guard** AI Assistant. Ask me about **pipeline health**, corrosion data, or maintenance schedules.",
+        "Hello! I'm the **QubyrFlow** AI Assistant. Ask me about **pipeline health**, corrosion data, or maintenance schedules.",
     },
   ]);
   const [input, setInput] = useState("");
@@ -132,7 +132,7 @@ export function AiChat() {
             </div>
             <div>
               <h3 className="font-heading text-sm font-extrabold tracking-tight text-primary-foreground">
-                EcoPipe AI
+                QubyrFlow AI
               </h3>
               <div className="flex items-center gap-1.5">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-300 animate-pulse" />
@@ -237,7 +237,7 @@ export function AiChat() {
             </button>
           </form>
           <p className="mt-2 text-center text-[10px] font-bold text-muted-foreground/50">
-            Powered by EcoPipe Guard AI
+            Powered by QubyrFlow AI
           </p>
         </div>
       </div>

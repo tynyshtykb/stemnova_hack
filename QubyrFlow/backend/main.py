@@ -6,9 +6,8 @@ import joblib
 import pandas as pd
 import random
 import json
-
-SUPABASE_URL = "https://sevglrtpdikmfnmctkas.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNldmdscnRwZGlrbWZubWN0a2FzIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2ODc1NTAyOSwiZXhwIjoyMDg0MzMxMDI5fQ.NCx14Do6kDUji6BtiKwBE7hbZ2LBu_LTXcaZvbmigPc"
+SUPABASE_URL = "https://hvlypstjbytixdifuryp.supabase.co"
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh2bHlwc3RqYnl0aXhkaWZ1cnlwIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MTM1NDUxMiwiZXhwIjoyMDk2OTMwNTEyfQ.qDTlUgUzrgtXwBIll4KnIeCzNmfu3xJ7lNZq1rg3Nb8"
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 model = joblib.load("pipeline_model.pkl")
@@ -18,7 +17,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

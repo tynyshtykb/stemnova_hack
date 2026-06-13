@@ -20,7 +20,7 @@ export function DashboardHeader({ role, onLogout }: DashboardHeaderProps) {
           </div>
           <div className="flex items-center gap-2">
             <h1 className="font-heading text-lg font-extrabold tracking-tight text-foreground">
-              EcoPipe Guard
+              QubyrFlow
             </h1>
             <span className="hidden text-sm font-bold text-muted-foreground sm:inline">
               System

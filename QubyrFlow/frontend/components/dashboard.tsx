@@ -12,24 +12,13 @@ import { fetchPipelines } from "@/lib/api";
 import type { Pipeline, UserRole } from "@/lib/types";
 import { useToast } from "@/hooks/use-toast";
 import { Toaster } from "@/components/ui/toaster";
+import { DEMO_PIPELINES } from "@/lib/demo-pipelines";
+import { AdminDeviceMonitor } from "@/components/admin-device-monitor";
 
 interface DashboardProps {
   role: UserRole;
   onLogout: () => void;
 }
-
-const DEMO_PIPELINE: Pipeline = {
-  id: 0,
-  pipe_id: 0,
-  pipe_size: 500,
-  min_thickness: 5.0,
-  material: "Carbon Steel",
-  grade: "API 5L X65",
-  corrosion_impact: 15.0,
-  time_in_years: 10,
-  initial_thickness: 12.0,
-  status: "Normal",
-};
 
 export function Dashboard({ role, onLogout }: DashboardProps) {
   const [pipelines, setPipelines] = useState<Pipeline[]>([]);
@@ -53,7 +42,7 @@ export function Dashboard({ role, onLogout }: DashboardProps) {
       toast({
         title: "Backend Offline",
         description:
-          "Could not connect to the API. Demo pipeline is still available.",
+          "Could not connect to the API. Using demonstration pipeline data.",
         variant: "destructive",
       });
     }
@@ -80,6 +69,13 @@ export function Dashboard({ role, onLogout }: DashboardProps) {
       <DashboardHeader role={role} onLogout={onLogout} />
 
       <main className="mx-auto max-w-7xl px-4 py-8">
+        {/* Admin Device Monitor */}
+        {role === "admin" && (
+          <div className="mb-8">
+            <AdminDeviceMonitor />
+          </div>
+        )}
+
         {/* Section header */}
         <div className="mb-6">
           <h2 className="font-heading text-2xl font-extrabold tracking-tight text-foreground">
@@ -92,14 +88,17 @@ export function Dashboard({ role, onLogout }: DashboardProps) {
 
         {/* Pipeline Grid */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {/* Demo Card */}
-          <PipelineCard
-            pipeId="DEMO-001"
-            material="Carbon Steel - API 5L X65"
-            status="Normal"
-            isDemo
-            onClick={() => handleOpenMonitor(DEMO_PIPELINE, true)}
-          />
+          {/* All Pipelines */}
+          {DEMO_PIPELINES.map((demoPipeline) => (
+            <PipelineCard
+              key={`demo-${demoPipeline.id}`}
+              pipeId={demoPipeline.pipe_id}
+              material={`${demoPipeline.material} - ${demoPipeline.grade}`}
+              status={demoPipeline.status || "Normal"}
+              isDemo
+              onClick={() => handleOpenMonitor(demoPipeline, true)}
+            />
+          ))}
 
           {/* Real Pipelines */}
           {pipelines.map((p) => (

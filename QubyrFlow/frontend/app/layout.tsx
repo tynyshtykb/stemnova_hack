@@ -16,7 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "EcoPipe Guard - Pipeline Predictive Maintenance",
+  title: "QubyrFlow - Pipeline Predictive Maintenance",
   description:
     "Real-time pipeline predictive maintenance dashboard for monitoring corrosion, pressure, and thickness loss.",
 };

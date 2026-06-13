@@ -178,10 +178,10 @@ export function PipelineMonitor({
 
   const handleExport = () => {
     const report = [
-      "ECOPIPE GUARD - PIPELINE REPORT",
+      "QUBYRFLOW - PIPELINE REPORT",
       "================================",
       "",
-      `Pipe ID: ${isDemo ? "DEMO-001" : `PIPE-${pipeline.pipe_id}`}`,
+      `Pipe ID: PIPE-${pipeline.pipe_id}`,
       `Material: ${pipeline.material}`,
       `Grade: ${pipeline.grade}`,
       `Status: ${currentData.status}`,
@@ -199,7 +199,7 @@ export function PipelineMonitor({
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `pipeline-report-${isDemo ? "DEMO-001" : pipeline.pipe_id}-${Date.now()}.txt`;
+    a.download = `pipeline-report-${pipeline.pipe_id}-${Date.now()}.txt`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -219,7 +219,7 @@ export function PipelineMonitor({
             </div>
             <div>
               <h2 className="font-heading text-lg font-extrabold text-foreground">
-                {isDemo ? "DEMO-001: Nord Stream Simulation" : `PIPE-${pipeline.pipe_id}`}
+                PIPE-{pipeline.pipe_id}
               </h2>
               <p className="text-sm font-semibold text-muted-foreground">
                 {pipeline.material} &middot; {pipeline.grade}
