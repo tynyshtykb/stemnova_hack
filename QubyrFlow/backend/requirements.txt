@@ -1,0 +1,10 @@
+pandas
+fastapi[standard]
+uvicorn[standard]
+pydantic
+python-multipart
+matplotlib
+scikit-learn
+supabase
+numpy
+requests
